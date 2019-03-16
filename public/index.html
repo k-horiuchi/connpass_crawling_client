@@ -11,43 +11,27 @@
   </head>
   <body>
     <div id="app">
-      <!--
+        <v-btn href="https://connpass.com/calendar/hokkaido/" flat large color="primary" class="display-1 font-weight-light"><v-card-title>connpass @sapporo</v-card-title></v-btn>
       <template>
-        <v-data-table :items="json_data" :headers="headers" class="elevation-1">
+        <v-data-table 
+        :items="json_data" 
+        :headers="headers" 
+        class="elevation-1"
+        :pagination.sync="pagination"
+        hide-actions dark>
           <template slot="items" slot-scope="props">
-            <td v-html="props.item.event_title"></td>
-            <td class="text-xs-right">{{ props.item.event_place }}</td>
-            <td class="text-xs-right">{{ props.item.convene_date }}</td>
+            <td class="text-xs-left" v-html="props.item.event_title"></td>
+            <td class="text-xs-left">{{ props.item.event_place }}</td>
+            <td class="text-xs-left">{{ props.item.convene_date }}</td>
             <td class="text-xs-right">{{ props.item.disclosure_date }}</td>
-            <td class="text-xs-right">{{ props.item.capacity }}</td>
+            <td class="text-xs-center">{{ props.item.capacity }}</td>
           </template>
         </v-data-table>
       </template>
-      -->
-      <h1><a href="https://connpass.com/calendar/hokkaido/">connpass</a>@sapporo</h1>
-        <table class="table">
-          <thead>
-              <th>No</th>
-              <th>公開日</th>
-              <th>開催日</th>
-              <th>定員</th>
-              <th>題名</th>
-              <th>場所</th>
-          </thead>
-        <tbody>
-        <tr v-for="(data, index) in json_data" :key='index'>
-          <td>{{ index+1 }}</td>
-          <td>{{ data.disclosure_date }}</td>
-          <td>{{ data.convene_date }}</td>
-          <td>{{ data.capacity }}</td>
-          <td v-html="data.event_title"></td>
-          <td>{{ data.event_place }}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <script>
-    </script>
+</div>
+<script>
+</script>
+
     <style>
         #app {
           font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -55,38 +39,20 @@
           -moz-osx-font-smoothing: grayscale;
           text-align: center;
           color: #2c3e50;
-          margin-top: 60px;
+          margin-bottom: 20px;
+          margin-right: 20px;
+          margin-left: 20px;
         }
-        table{
-          width: 100%;
-          }
 
 html {
   background: #F4F5F7;
 }
-th,td {
-    padding: 8px 10px;          /* 余白指定 */
-}
-table, th, td {
-  border-collapse: collapse;
-  border: 1px solid #ffffff;
-  line-height: 1.5;
-}
-
-th {
-  font-weight: bold;
-  vertical-align: top;
-  background: #3f3f3f;
-  color: #ffffff;
-}
-td {
-  vertical-align: top;
-  background: #CCCCCC;
-}
 a {
 text-decoration: none;
+color: #cee1ee;
+font-weight: 300;
 }
+a:link { color: #ece6c5; }
         </style>
-        <!-- built files will be auto injected -->
-  </body>
+    </body>
 </html>
