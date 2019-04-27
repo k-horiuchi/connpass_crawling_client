@@ -16,40 +16,43 @@ new Vue({
           align: 'left',
           sortable: false,
         },
-        { text: '場所',
-         value: 'event_place',
-         align: 'left',
-         sortable: false,
-         },
-      {
-        text: '開催日', 
-        value: 'convene_date',
-        align: 'left',
-        sortable: true,
-      },
-      {
-       text: '公開日',
-       value: 'disclosure_date',
-       align: 'center',
-       sortable: true,
-       },
+        {
+          text: '場所',
+          value: 'event_place',
+          align: 'left',
+          sortable: false,
+        },
+        {
+          text: '開催日', 
+          value: 'convene_date',
+          align: 'left',
+          sortable: false,
+        },
+        {
+          text: '公開日',
+          value: 'disclosure_date',
+          align: 'center',
+          sortable: false,
+        },
         {
            text: '定員', 
            value: 'capacity',
            align: 'center',
            sortable: false,
-           }
+        }
       ],
-        pagination: {
+      pagination: {
           sortBy: 'disclosure_date',
           descending: true,
           rowsPerPage: -1,
-        },
+      },
       json_data: []
     }
   },
   created: function () {
     axios.get(url).then((res) => {
       this.json_data = res.data;
-  })
-}})
+    })
+  }
+})
+
